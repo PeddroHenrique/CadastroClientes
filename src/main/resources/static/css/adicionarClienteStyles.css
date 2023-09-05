@@ -1,0 +1,162 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 de ago. de 2023, 02:35:20
+    Author     : Pedro
+*/
+
+* {
+    box-sizing: border-box; /* Apply border-box to all elements */
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.content-container {
+    flex: 1;
+    background-color: #3b3b3b;
+    height: 100%; /* Usando 100% para ocupar toda a altura da tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25%; /* Usando 5% em vez de 50vh */
+    padding-right: 25%; /* Usando 5% em vez de 50vh */
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    margin: 0 auto;
+    width: 100%; /* Adjust the width to 100% */
+    max-width: 500px; /* Adjust the maximum width as needed */
+    margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+    .content-container {
+        padding-left: 10%; /* Ajuste o espaçamento em telas menores */
+        padding-right: 10%; /* Ajuste o espaçamento em telas menores */
+    }
+}
+
+.container-fluid {
+    font-family: Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    margin-top: 10%;
+    background-color: #314390;
+    border: none;
+}
+
+/* Personalização adicional */
+.label {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Estilos para os campos de entrada e seleção */
+.span,
+.input[type="email"],
+.input[type="tel"],
+.select,
+.textarea {
+    width: 100%; /* Preencher toda a largura do contêiner pai */
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Estilos para os campos de entrada e seleção quando em foco */
+.span:focus,
+.input[type="email"]:focus,
+.input[type="tel"]:focus,
+.select:focus,
+.textarea:focus {
+    border-color: #87b7ff;
+    box-shadow: 0 0 1px 4px #c2daff;
+    outline: none;
+}
+
+.form-container form span,
+.form-container form input[type="text"],
+.form-container form input[type="text"],
+.form-container form select,
+.form-container form textarea {
+    width: 200%;
+    padding: 10px;
+    border-color: #000000;
+    border-radius: 100px;
+    box-shadow: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container form span:focus,
+.form-container form input[type="email"]:focus,
+.form-container form input[type="tel"]:focus,
+.form-container form textarea:focus {
+    border-color: #87b7ff; /* Change border color on focus */
+    box-shadow: 0 0 1px 4px #c2daff; /* Add a box shadow on focus */
+    outline: none; /* Remove the default focus outline */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -10%;
+    padding-left: 5%;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .content-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    /* Reduza o tamanho dos campos e aumente o tamanho dos botões em telas menores */
+    .form-container form span,
+    .form-container form input[type="email"],
+    .form-container form input[type="tel"],
+    .form-container form select,
+    .form-container form textarea {
+        width: 100%;
+        padding: 10px;
+        border-color: #000000;
+        border-radius: 4px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    /* Aumente o espaçamento entre os campos em telas menores */
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste o tamanho dos botões em telas menores */
+    .btn-primary {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

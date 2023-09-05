@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Cadastro de clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/adicionarClienteStyles.css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-custom" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">Cadastro de clientes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cliente/listar-clientes">Listar Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="nav-link" type="submit" value="Sair">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content-container">
+            <div class="form-container">
+                <form class="col-md-6" th:object="${cliente}" th:action="@{/cliente/alterar-cliente}" method="post">
+                    <div>
+                        <input type="hidden" th:field="*{id}">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input class="form-control" type="text" th:field="*{nome}" placeholder="Nome">
+                        <p class="error-message" th:if="${#fields.hasErrors('nome')}" th:each="error : ${#fields.errors('nome')}" th:text="${error}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Idade</label>
+                        <select class="form-select" th:field="*{idade}">
+                            <option th:each="i : ${#numbers.sequence(18, 100)}" th:value="${i}" th:text="${i}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input class="form-control" type="text" th:field="*{telefone}" placeholder="(00)00000-0000">
+                        <p class="error-message" th:if="${#fields.hasErrors('telefone')}" th:each="error : ${#fields.errors('telefone')}" th:text="${error}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input class="form-control" type="text" th:field="*{cpf}" placeholder="000.000.000-00">
+                        <p class="error-message" th:if="${#fields.hasErrors('cpf')}" th:each="error : ${#fields.errors('cpf')}" th:text="${error}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="text" th:field="*{email}" placeholder="nome@exemplo.com">
+                        <p class="error-message" th:if="${#fields.hasErrors('email')}" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary flex-grow-1 me-2">Alterar</button>
+                        <a href="/cliente/listar-clientes" class="btn btn-primary flex-grow-1">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>

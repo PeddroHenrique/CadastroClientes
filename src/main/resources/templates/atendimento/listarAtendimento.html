@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Cadastro de clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{../../css/listarClientesStyles.css}"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-custom" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">Cadastro de clientes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cliente/listar-clientes">Listar Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="nav-link" type="submit" value="Sair">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content-responsive">
+            <div class="row">
+                <div class="col-12 mb-3 mb-lg-5">
+                    <div class="button-container mb-3">
+                        <a th:href="@{/cliente/adicionar-atendimento/{id} (id=${id})}" class="btn btn-primary">Novo Atendimento</a>
+                    </div>
+                    <div class="overflow-hidden card table-nowrap table-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0" th:text="'Atendimentos do cliente ' + ${cliente.nome}"></h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-nowrap">
+                                <thead class="small text-uppercase bg-body text-muted">
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Data</th>
+                                        <th class="text-end">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-middle" th:each="atendimento : ${atendimentos}">
+                                        <td th:text="${atendimento.titulo}"></td>
+                                        <td th:text="${#dates.format(atendimento.data, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                                        <td class="text-end">
+                                            <div class="dropdown-container dropstart dropup">
+                                                <a data-bs-toggle="dropdown" class="btn p-1" aria-expanded="false">
+                                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                                    <form th:action="@{/cliente/alterar-atendimento/{id} (id=${atendimento.id})}" method="get">
+                                                        <input type="submit" class="btn btn-light" value="Ver">
+                                                    </form>
+                                                    <form th:action="@{/cliente/deletar-atendimento/{id} (id=${atendimento.id})}" method="post">
+                                                        <input type="submit" class="btn btn-light" value="Deletar">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body> 
+</html>
