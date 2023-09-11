@@ -56,8 +56,6 @@ public class AtendimentoController {
             model.addAttribute("atendimento", atendimento);
             return "atendimento/adicionarAtendimento";
         }
-        /*Arrumar depois*/
-        atendimento.setId(null);
         
         atendimentoService.salvarAtendimento(atendimento);
         return "redirect:/cliente/listar-atendimentos/" + atendimento.getCliente().getId();
