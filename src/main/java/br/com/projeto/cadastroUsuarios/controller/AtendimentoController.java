@@ -57,6 +57,8 @@ public class AtendimentoController {
             return "atendimento/adicionarAtendimento";
         }
         
+        atendimento.setId(null);
+        
         atendimentoService.salvarAtendimento(atendimento);
         return "redirect:/cliente/listar-atendimentos/" + atendimento.getCliente().getId();
     }
