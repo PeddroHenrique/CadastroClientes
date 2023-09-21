@@ -1,0 +1,15 @@
+spring:
+    datasource:
+        url: jdbc:mysql://db:3306/cadastro_usuarios
+        username: admin
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        initialization-mode: always
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        properties:
+            hibernate.format_sql: true
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        open-in-view: true

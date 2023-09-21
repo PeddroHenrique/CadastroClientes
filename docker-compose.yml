@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    app:
+        image: pedrohens/springbootusuarios:1.0.0
+        ports:
+            - 8080:8080
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cadastro_usuarios
+            SPRING_DATASOURCE_USERNAME: admin
+            SPRING_DATASOURCE_PASSWORD: root
+        depends_on:
+            - db
+            
+    db:
+        image: mysql:8.1.0
+        environment:
+          DATABASE_HOST: db
+          DATABASE_PORT: 3306
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: cadastro_usuarios
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: root

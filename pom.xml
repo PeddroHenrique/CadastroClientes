@@ -11,7 +11,7 @@
 	<groupId>br.com.projeto</groupId>
 	<artifactId>cadastroUsuarios</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cadastroUsuarios</name>
+	<name>cadastrousuarios</name>
 	<description>Praticando SpringSecurity</description>
 	<properties>
 		<java.version>17</java.version>
