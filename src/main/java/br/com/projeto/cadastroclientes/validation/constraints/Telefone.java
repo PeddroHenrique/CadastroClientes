@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package br.com.projeto.cadastroUsuarios.validation.constraints;
+package br.com.projeto.cadastroclientes.validation.constraints;
 
-import br.com.projeto.cadastroUsuarios.validation.TelefoneValidation;
+import br.com.projeto.cadastroclientes.validation.TelefoneValidation;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import java.lang.annotation.Documented;

@@ -1,4 +1,4 @@
-package br.com.projeto.cadastroUsuarios;
+package br.com.projeto.cadastroclientes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

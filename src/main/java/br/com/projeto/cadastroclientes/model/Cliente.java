@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.projeto.cadastroUsuarios.model;
+package br.com.projeto.cadastroclientes.model;
 
-import br.com.projeto.cadastroUsuarios.validation.constraints.Telefone;
+import br.com.projeto.cadastroclientes.validation.constraints.Telefone;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
